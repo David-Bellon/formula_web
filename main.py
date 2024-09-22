@@ -3,6 +3,8 @@ import pandas as pd
 import fastf1
 import plotly.graph_objects as go
 
+st.set_page_config(layout="wide")
+
 st.title("My First Streamlit Webpage")
 
 session = fastf1.get_session(2024, 15, 'Q')
@@ -28,7 +30,9 @@ fig.add_trace(go.Scatter(
     y=ham_data["Speed"],
     mode="lines",
     name="HAM",
-    line=dict(color="red")
+    line=dict(color="red"),
+    hoverinfo="text",
+    text=[f"HAM {value}" for value in ham_data["Speed"]]
 ))
 
 fig.add_trace(go.Scatter(
@@ -36,9 +40,11 @@ fig.add_trace(go.Scatter(
     y=ver_data["Speed"],
     mode="lines",
     name="VER",
-    line=dict(color="blue")
+    line=dict(color="blue"),
+    hoverinfo="text",
+    text=[f"VER {value}" for value in ver_data["Speed"]]
 ))
 
-fig.update_layout(title="Comparation", xaxis_title="Distance", yaxis_title="Speed")
+fig.update_layout(title="Comparation", xaxis_title="Distance", yaxis_title="Speed", hovermode='x unified')
 
 st.plotly_chart(fig)
