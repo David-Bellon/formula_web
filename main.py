@@ -29,7 +29,8 @@ session_numbers = {
     "Netherlands": 15,
     "Monza": 16,
     "Azerbaijan": 17,
-    "Singapore": 18
+    "Singapore": 18,
+    "Austin": 19
 }
 
 # Custom CSS for centering and responsive layout
